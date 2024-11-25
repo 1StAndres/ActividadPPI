@@ -34,7 +34,7 @@ def evaluar_contrasena(contrasena):
     return es_segura, criterios_faltantes
 
 # Interfaz de usuario con Streamlit
-st.title("Evaluador de Contraseñas")
+st.title("Evaluador de Contraseñas por Andres Arbelaez")
 
 contrasena = st.text_input("Ingrese su contraseña:")
 
