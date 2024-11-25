@@ -36,7 +36,7 @@ def evaluar_contrasena(contrasena):
 # Interfaz de usuario con Streamlit
 st.title("Evaluador de Contraseñas por Andres Arbelaez")
 
-contrasena = st.text_input("Ingrese su contraseña", type="password")
+password = st.text_input("Ingrese su contraseña", type="password")
 
 # Función para mostrar/ocultar la contraseña
 def toggle_password_visibility():
@@ -48,11 +48,11 @@ col1, col2 = st.columns(2)
 with col1:
     st.write("")  # Espacio en blanco para alinear el botón
 with col2:
-    if password:
+    if contrasena:
         st.button("Mostrar", on_click=toggle_password_visibility, key="toggle_password")
 
 
-if contrasena:
+if password:
     es_segura, criterios_faltantes = evaluar_contrasena(contrasena)
     if es_segura:
         st.success("¡Excelente! Tu contraseña es muy segura.")
