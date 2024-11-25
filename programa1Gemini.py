@@ -1,7 +1,6 @@
 # el siguiente codigo fue creado usando la ia gemini
 import streamlit as st
 import re
-import random
 
 def evaluar_contrasena(contrasena):
     # Expresiones regulares para cada criterio
@@ -19,18 +18,20 @@ def evaluar_contrasena(contrasena):
         especial.search(contrasena)
     )
 
-    return es_segura
+    # Crear un diccionario para almacenar los criterios que faltan
+    criterios_faltantes = []
+    if len(contrasena) < 8:
+        criterios_faltantes.append("longitud (mínimo 8 caracteres)")
+    if not mayuscula.search(contrasena):
+        criterios_faltantes.append("al menos una letra mayúscula")
+    if not minuscula.search(contrasena):
+        criterios_faltantes.append("al menos una letra minúscula")
+    if not numero.search(contrasena):
+        criterios_faltantes.append("al menos un número")
+    if not especial.search(contrasena):
+        criterios_faltantes.append("al menos un carácter especial")
 
-def generar_sugerencia():
-    sugerencias = [
-        "Incluye al menos un número.",
-        "Agrega una letra mayúscula.",
-        "Utiliza una letra minúscula.",
-        "Incorpora un carácter especial.",
-        "Aumenta la longitud de la contraseña.",
-        "Combina diferentes tipos de caracteres.",
-    ]
-    return random.choice(sugerencias)
+    return es_segura, criterios_faltantes
 
 # Interfaz de usuario con Streamlit
 st.title("Evaluador de Contraseñas")
@@ -38,9 +39,9 @@ st.title("Evaluador de Contraseñas")
 contrasena = st.text_input("Ingrese su contraseña:")
 
 if contrasena:
-    es_segura = evaluar_contrasena(contrasena)
+    es_segura, criterios_faltantes = evaluar_contrasena(contrasena)
     if es_segura:
         st.success("¡Excelente! Tu contraseña es muy segura.")
     else:
         st.error("Tu contraseña no es lo suficientemente segura.")
-        st.info(generar_sugerencia())
+        st.info("Para mejorarla, te recomendamos incluir: " + ", ".join(criterios_faltantes))
