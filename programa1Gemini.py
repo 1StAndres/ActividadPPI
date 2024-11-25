@@ -38,18 +38,7 @@ st.title("Evaluador de Contraseñas por Andres Arbelaez")
 
 password = st.text_input("Ingrese su contraseña", type="password")
 
-# Función para mostrar/ocultar la contraseña
-def toggle_password_visibility():
-    password_input = st.session_state.get('password_input')
-    password_input.type = "text" if password_input.type == "password" else "password"
 
-# Botón con icono de ojo
-col1, col2 = st.columns(2)
-with col1:
-    st.write("")  # Espacio en blanco para alinear el botón
-with col2:
-    if password:
-        st.button("Mostrar", on_click=toggle_password_visibility, key="toggle_password")
 
 
 if password:
