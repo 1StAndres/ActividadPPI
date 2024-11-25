@@ -36,7 +36,7 @@ def procesar_csv(archivo_csv):
     return pd.DataFrame(datos, columns=["Número de Serie", "Nombre Producto", "Valor", "Fecha", "Nombre", "Email", "Teléfono"])
 
 # Interfaz de usuario de Streamlit
-st.title("Procesador de CSV a Excel")
+st.title("Procesador de CSV a Excel por Andres Arbelaez")
 
 uploaded_file = st.file_uploader("Sube tu archivo CSV", type="csv")
 
