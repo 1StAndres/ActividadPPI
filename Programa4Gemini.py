@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import re
 
-st.title("Extractor de Información con Regex")
+st.title("Extractor de Información con Regex por Andres Arbelaez")
 
 uploaded_file = st.file_uploader("Sube tu archivo de texto", type="txt")
 
