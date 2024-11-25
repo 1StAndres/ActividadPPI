@@ -20,7 +20,7 @@ def evaluar_contrasena(contrasena):
 
     # Crear un diccionario para almacenar los criterios que faltan
     criterios_faltantes = []
-    if len(contrasena) < 8:
+    if len(password) < 8:
         criterios_faltantes.append("longitud (mínimo 8 caracteres)")
     if not mayuscula.search(contrasena):
         criterios_faltantes.append("al menos una letra mayúscula")
@@ -48,12 +48,12 @@ col1, col2 = st.columns(2)
 with col1:
     st.write("")  # Espacio en blanco para alinear el botón
 with col2:
-    if contrasena:
+    if password:
         st.button("Mostrar", on_click=toggle_password_visibility, key="toggle_password")
 
 
 if password:
-    es_segura, criterios_faltantes = evaluar_contrasena(contrasena)
+    es_segura, criterios_faltantes = evaluar_contrasena(password)
     if es_segura:
         st.success("¡Excelente! Tu contraseña es muy segura.")
     else:
