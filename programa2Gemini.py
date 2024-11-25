@@ -21,7 +21,7 @@ def validar_fecha(fecha):
     return re.match(patron, fecha)
 
 # Interfaz de usuario con Streamlit
-st.title("Formulario de Validación")
+st.title("Formulario de Validación por Andres Arbelaez")
 
 nombre = st.text_input("Ingrese su nombre:")
 email = st.text_input("Ingrese su correo electrónico:")
