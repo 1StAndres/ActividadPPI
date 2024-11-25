@@ -26,7 +26,7 @@ st.title("Formulario de Validación")
 nombre = st.text_input("Ingrese su nombre:")
 email = st.text_input("Ingrese su correo electrónico:")
 telefono = st.text_input("Ingrese su número de teléfono:")
-fecha = st.text_input("Ingrese su fecha de nacimiento (AAAA-MM-DD):")
+fecha = st.text_input("Ingrese su fecha de nacimiento (DD-MM-AAAA):")
 
 if st.button("Validar"):
     if validar_nombre(nombre):
@@ -47,4 +47,4 @@ if st.button("Validar"):
     if validar_fecha(fecha):
         st.success("Fecha válida.")
     else:
-        st.error("Fecha inválida. Debe tener el formato AAAA-MM-DD.")
+        st.error("Fecha inválida. Debe tener el formato DD-MM-AAAA.")
