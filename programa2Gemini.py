@@ -11,13 +11,13 @@ def validar_email(email):
     return re.match(patron, email)
 
 def validar_telefono(telefono):
-    # Puedes ajustar este patrón según el formato de teléfono que desees validar
-    patron = r"^\d{10}$"  # 10 dígitos
+    # Permite diferentes formatos de números de teléfono (con o sin código de país, con o sin separadores)
+    patron = r"^\+?(\d{2})?[-.\s]?\d{3}[-.\s]?\d{7}$"
     return re.match(patron, telefono)
 
 def validar_fecha(fecha):
     # Puedes ajustar este patrón según el formato de fecha que desees validar
-    patron = r"^\d{4}-\d{2}-\d{2}$"  # Formato AAAA-MM-DD
+    patron = r"^\d{2}-\d{2}-\d{4}$"  # Formato DD-MM-AAAA
     return re.match(patron, fecha)
 
 # Interfaz de usuario con Streamlit
